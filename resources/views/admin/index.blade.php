@@ -62,12 +62,16 @@
         .downvote-section {
             margin-top: 60px;
         }
+        .cols{
+            background-color: #48E1F3;
+        }
+        
     </style>
 </head>
 <body>
     <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#">Navbar</a>
+                    <a class="navbar-brand" href="#">Forum Nepal Admin Panel</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
@@ -85,13 +89,16 @@
                             </li>
                      
                       </ul>
+                   
                       <form class="form-inline my-2 my-lg-0">
+                          
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         <button class="btn btn-danger my-2 my-sm-0" style="margin:5px" type="submit">Log Out</button>
-                      </form>
+                            </form>
                     </div>
                   </nav>
+               
         <div class="row first-section">
             <div class="col-md-4">
                 <div class="cols">
@@ -130,7 +137,7 @@
                                         </th>
                                         <th scope="col"> {{ $item->vote_ttl }} </th>
                                         <th scope="col">
-                                        <form id="delete-form-{{$item->id}}" action="{{ route('question.delete', ['id' => $item->id]) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{$item->id}}" action="{{ route('question.delete', ['id' => $item->id])}}" method="POST" style="display: none;">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
                                             </form>                                            

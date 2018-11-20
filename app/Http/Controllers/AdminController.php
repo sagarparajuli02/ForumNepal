@@ -38,5 +38,13 @@ class AdminController extends Controller
         $users = DB::select('select * from users');
         return view('admin.view_users',['users'=>$users]);
      }
+   
+      
+     public function insert(Request $request){
+        $name = $request->input('stud_name');
+        DB::insert('insert into tags (name) values(?)',[$name]);
+        echo "Record inserted successfully.<br/>";
+        echo '<a href = "/insert">Click Here</a> to go back.';
+     }
 }
     

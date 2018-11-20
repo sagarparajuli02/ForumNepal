@@ -69,7 +69,9 @@ Route::post('vote/question', array( 'before'=>'csfr','uses'=>'VoteController@vot
 Route::middleware('auth')->group(function() {
 
     Route::get('admin', 'AdminController@index')->name('admin');
-    Route::delete('question/{id}', 'QuestionController@destroy')->name('admin');
+    Route::delete('question/{id}', 'QuestionController@destroy')->name('question.delete');
 });
 
 Route::get('admin/view_users','AdminController@indexs');
+Route::get('view_users','AdminController@insertform');
+Route::post('view_users','AdminController@insert');

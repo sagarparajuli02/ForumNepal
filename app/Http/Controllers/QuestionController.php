@@ -92,6 +92,7 @@ class QuestionController extends Controller
     {
         $question = Question::findOrFail($id);
         $question->delete();
+        Session::flash('flash_message','<P><h3>Question Deleted</h3></P><P>The question has been deleted.</P>');
         return Redirect::to('admin');
     }
 }

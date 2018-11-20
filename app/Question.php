@@ -210,4 +210,14 @@ class Question extends Model {
         ->orderBy('questions.created_at', 'desc')
         ->paginate(self::$pagination_count);
     }
+
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function($question) {
+            $question->answers()->delete();
+            $question->votes()->delete();
+            $question->tags()->detach();
+        });
+    }
 }
