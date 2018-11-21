@@ -44,7 +44,6 @@ class AdminController extends Controller
         $name = $request->input('stud_name');
         DB::insert('insert into tags (name) values(?)',[$name]);
         echo "Record inserted successfully.<br/>";
-        echo '<a href = "/insert">Click Here</a> to go back.';
      }
 }
     

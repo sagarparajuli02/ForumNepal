@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('/search/',['uses' => 'HomeController@search','as' => 'search']);
 
 // Home
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 
 // User Routes
 Route::get('user/{id}', 'UserController@index');
@@ -66,10 +66,11 @@ Route::post('vote/answer', array( 'before'=>'csfr','uses'=>'VoteController@vote_
 Route::post('vote/question', array( 'before'=>'csfr','uses'=>'VoteController@vote_question' ) );
 
 // Admin
-Route::middleware('auth')->group(function() {
+Route::middleware(['auth', 'isadmin'])->group(function() {
 
     Route::get('admin', 'AdminController@index')->name('admin');
     Route::delete('question/{id}', 'QuestionController@destroy')->name('question.delete');
+    Route::post('tags', 'TagController@store')->name('tag.store');
 });
 
 Route::get('admin/view_users','AdminController@indexs');

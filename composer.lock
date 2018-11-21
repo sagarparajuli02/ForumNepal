@@ -4,8 +4,100 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da2c7d1c0b21ea9fc2e03a278976d39c",
+    "content-hash": "eae40195a83e0ad703ba192b4a6b7674",
     "packages": [
+        {
+            "name": "askedio/laravel5-profanity-filter",
+            "version": "1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Askedio/laravel-profanity-filter.git",
+                "reference": "34bec8cd92e998015e73a90d888ef981b0ed749a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Askedio/laravel-profanity-filter/zipball/34bec8cd92e998015e73a90d888ef981b0ed749a",
+                "reference": "34bec8cd92e998015e73a90d888ef981b0ed749a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "laravel/laravel": "5.*",
+                "phpunit/phpunit": "~5.0",
+                "symfony/css-selector": "3.1.*",
+                "symfony/dom-crawler": "3.1.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Askedio\\Laravel5ProfanityFilter\\Providers\\ProfanityFilterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Askedio\\Laravel5ProfanityFilter\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0"
+            ],
+            "description": "A Vendor Package Example",
+            "keywords": [
+                "laravel"
+            ],
+            "time": "2018-10-19T16:07:02+00:00"
+        },
+        {
+            "name": "consoletvs/profanity",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ConsoleTVs/Profanity.git",
+                "reference": "354adb2dfba100407ac4451285b8f415a687b3f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ConsoleTVs/Profanity/zipball/354adb2dfba100407ac4451285b8f415a687b3f1",
+                "reference": "354adb2dfba100407ac4451285b8f415a687b3f1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ConsoleTVs\\Profanity\\ProfanityServiceProvider"
+                    ],
+                    "aliases": {
+                        "Profanity": "ConsoleTVs\\Profanity\\Facades\\Profanity"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ConsoleTVs\\Profanity\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erik Campobadal",
+                    "email": "ConsoleTVs@gmail.com"
+                }
+            ],
+            "description": "PHP library to block bad words in a string",
+            "time": "2017-12-05T12:48:30+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -1100,6 +1192,62 @@
                 "mailer"
             ],
             "time": "2018-07-31T09:26:32+00:00"
+        },
+        {
+            "name": "sworup/profanityfilter",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sworup/ProfanityFilter.git",
+                "reference": "0f15acc78dccfc7d39734f3d0e71be5459d0c6b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sworup/ProfanityFilter/zipball/0f15acc78dccfc7d39734f3d0e71be5459d0c6b7",
+                "reference": "0f15acc78dccfc7d39734f3d0e71be5459d0c6b7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.1",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sworup\\ProfanityFilter\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sworup Shakya",
+                    "email": "sworup.shakya@gmail.com",
+                    "homepage": "http://sworup.com.np",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Profanity filter package would help you censor some of the bad words users put in your posts and/or comments.",
+            "homepage": "https://github.com/Sworup/ProfanityFilter",
+            "keywords": [
+                "Profanity Filter",
+                "censor",
+                "curse words",
+                "laravel",
+                "remove profanity",
+                "swear word"
+            ],
+            "time": "2017-01-25T11:18:39+00:00"
         },
         {
             "name": "symfony/console",

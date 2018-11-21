@@ -51,7 +51,8 @@ class UserController extends Controller
 
         if(Auth::user()->id == $id) {
             $user = User::findOrFail($id);
-            return view('user.notifications')->with('user',$user)->with('user',$user)->with('page_title', $user->name . 'Notifications');
+            // dd($user->unreadNotifications);
+            return view('user.notifications')->with('user', $user)->with('page_title', $user->name . 'Notifications');
         } else {
             abort(401, "Unauthorized");
         }

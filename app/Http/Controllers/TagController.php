@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use App\Question;
+use App\Classes\URL;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class TagController extends Controller
 {
@@ -59,6 +63,24 @@ class TagController extends Controller
         $tag = Tag::select('name')->where('name', '=', $name)->first();
         $questions = Question::unanswered($tag->toArray());
         return view('tag', ['tag_info' => $tag, 'questions' => $questions, 'page_title' => 'Unanswered ' . $tag->name . ' Questions', 'sort' => 'not_answered']);
+    }
+
+    public function store(Request $request)
+    {
+        $this->validateInput($request);
+        Tag::create([
+            'name' => $request['name'],
+            'display' => URL::get_slug($request['name'])
+        ]);
+        Session::flash('flash_message','<P><h3>Tag Added</h3></P><P>Tag has been added.</P>');
+        return Redirect::to('admin');
+    }
+
+    private function validateInput($request)
+    {
+        return $this->validate($request, [
+            'name' => 'required|max:60|unique:tags'
+        ]);
     }
 
 }

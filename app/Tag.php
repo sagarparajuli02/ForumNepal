@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class Tag extends Model
 {
-
+    protected $fillable = [
+        'name',
+        'display'
+    ];
     // Bind question to tags
     // use count() to get number of questions per tag.
     public function questions() {

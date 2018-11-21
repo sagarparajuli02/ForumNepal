@@ -71,6 +71,12 @@
         .downvote-section {
             margin-top: 60px;
         }
+        td{
+            margin: 20px;
+        }
+        td .btn{
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
@@ -128,16 +134,18 @@
               </button>
             </div>
             <div class="modal-body">
-                    <form action = "/create" method = "post">
-                        <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+            <form action = "{{ route('tag.store')}}" method="POST">
+                        {{ csrf_field() }}
                         <table>
-                           <tr>
-                              <td>Name</td>
-                              <td><input type='text' name='stud_name' /></td>
+                           <tr >
+                              <td>Enter Tag Name :  </td>
+                      
+                              <td>      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"name='name' >
+                              </td>
                            </tr>
                            <tr>
                               <td colspan = '2'>
-                                 <input type = 'submit' value = "Add Tag"/>
+                                    <button type="submit" class="btn btn-info">Add Tag</button>
                               </td>
                            </tr>
                         </table>

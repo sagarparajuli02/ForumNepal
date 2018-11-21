@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
+use ConsoleTVs\Profanity\Facades\Profanity;
+
 use App\Answer;
 use App\Question;
 use App\Classes\URL;
@@ -60,7 +62,7 @@ class QuestionController extends Controller
             return Redirect::to('question/'.$are_duplicates->id.'/'.URL::get_slug($are_duplicates->question));
         }
 
-        $question = Question::insert(Auth::user()->id, Request::get('tags'), Request::get('question'));
+        $question = Question::insert(Auth::user()->id, Request::get('tags'),  Profanity::blocker(Request::get('question'))->filter());
         Session::flash('flash_message','<P><h3>Question Added</h3></P><P>You\'ll be notified of new answers or votes immediately!</P>');
         return Redirect::to('question/'.$question->id.'/'.URL::get_slug($question->question));
     }   
@@ -80,7 +82,7 @@ class QuestionController extends Controller
      */
     public function edit_save() {
         $id =  Request::get('id');
-        $question = Request::get('question');
+        $question = Profanity::blocker(Request::get('question'))->filter();
 
         $q = Question::find($id);
         $q->question = $question;
